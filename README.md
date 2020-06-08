@@ -36,8 +36,7 @@ You can also move around the scene freely using default mouse controls like drag
 * [ThreeTS Template](https://github.com/marquizzo/three.ts-template)
 * [Three Webpack Plugin](https://github.com/wildpeaks/package-three-webpack-plugin)
 
-Inspiration taken from [Aidentity's website](https://www.aidentity.sg/).
-
-Example objects taken from [Jarlan Perez](https://poly.google.com/user/4lZfAdz3x3X)
+Inspiration taken from [Aidentity's website](https://www.aidentity.sg/).\
+Example objects taken from [Jarlan Perez](https://poly.google.com/user/4lZfAdz3x3X).
 
 [preview-screenshot]: images/example.png
