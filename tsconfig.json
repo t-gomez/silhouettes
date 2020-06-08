@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"moduleResolution": "node",
+		"sourceMap": true,
+
+		"lib": ["es2015", "dom"],
+		"baseUrl": "./",
+
+		// Shortcuts to avoid up-one-level hell: 
+		// Turns "../../../utils" into "Utils"
+		"paths": {
+			"GLTFLoader": ["node_modules/three/examples/jsm/loaders/GLTFLoader"],
+			"OrbitControls": ["node_modules/three/examples/jsm/controls/OrbitControls"],
+			"OBJLoader": ["node_modules/three/examples/jsm/controls/OBJLoader"],
+			"@utils/*": ["src/utils/*"]
+		},
+
+		// Gives error if there are implied "<any>" types.
+		// "noImplicitAny": true, 
+
+		// Allows you to access non-constant properties, such as object[keyVar]
+		"suppressImplicitAnyIndexErrors": true
+	},
+	// "exclude": [
+	// 	"node_modules"
+	// ]
+}

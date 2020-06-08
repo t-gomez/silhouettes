@@ -1,0 +1,39 @@
+@import 'base/base';
+
+.uploader-input{
+    display: none;
+}
+
+.uploader{
+    $size: 4rem;
+    $offset: 2rem;
+
+    width: $size;
+    height: $size;
+
+    bottom: $offset; 
+    right: $offset;
+
+    position: fixed;
+    z-index: 1;
+    background-color: #fff;
+    border: none;
+    border-radius: .5rem;
+
+    transition: 
+        transform .2s ease-in-out,
+        background-color .2s ease-in-out;
+
+    &:active {
+        transform: translateY(-3px);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:active {
+        background-color: #cecece;
+    }
+}
