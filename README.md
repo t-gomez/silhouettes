@@ -1,6 +1,7 @@
 # Silhouettes
+[Live Demo](https://silhouettes.now.sh/)
 
-![Product Name Screen Shot][preview-screenshot]
+[![Product Name Screen Shot][preview-screenshot]](https://silhouettes.now.sh/)
 
 Silhouettes is a prototype for animating particle system morphing smoothly. It is being rendered using WebGL and uses GSAP for animations, this is the result after playing around with three.js over a few weeks. The scene will cycle through some selected geometry shapes and a few custom geometries at the end, you can also upload a simple `.obj` for the system to morph into.
 
