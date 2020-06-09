@@ -39,4 +39,4 @@ You can also move around the scene freely using default mouse controls like drag
 Inspiration taken from [Aidentity's website](https://www.aidentity.sg/).\
 Example objects taken from [Jarlan Perez](https://poly.google.com/user/4lZfAdz3x3X).
 
-[preview-screenshot]: images/example.png
+[preview-screenshot]: web/images/example.png
