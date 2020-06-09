@@ -46,8 +46,9 @@ h1, p {
 }
 
 .uploader {
-  width: 4rem;
-  height: 4rem;
+  --size: 4rem;
+  width: var(--size);
+  height: var(--size);
   background-color: #fff;
   border: none;
   border-radius: .5rem;
@@ -70,9 +71,24 @@ h1, p {
   background-color: #cecece;
 }
 
+@media (max-width: 450px) {
+  .uploader {
+    --size: 3rem;
+  }
+}
+
 .github-link {
-  bottom: 2rem;
-  left: 2rem;
+  --offset: 2rem;
+  bottom: var(--offset);
+  left: var(--offset);
   position: fixed;
+}
+
+@media (max-width: 450px) {
+  .github-link {
+    top: var(--offset);
+    right: var(--offset);
+    left: auto;
+  }
 }
 /*# sourceMappingURL=main.css.map */

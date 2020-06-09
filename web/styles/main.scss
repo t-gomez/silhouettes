@@ -1,4 +1,7 @@
 @import 'base/base';
+@import 'base/helpers';
+
+
 
 .uploader-input{
     display: none;
@@ -29,10 +32,10 @@
 }
 
 .uploader{
-    $size: 4rem;
+    --size: 4rem;
 
-    width: $size;
-    height: $size;
+    width: var(--size);
+    height: var(--size);
 
     background-color: #fff;
     border: none;
@@ -54,13 +57,23 @@
     &:active {
         background-color: #cecece;
     }
+
+    @include small {
+        --size: 3rem;
+    }
 }
 
 .github-link{
-    $offset: 2rem;
+    --offset: 2rem;
 
-    bottom: $offset; 
-    left: $offset;
+    bottom: var(--offset);
+    left: var(--offset);
 
     position: fixed;
+
+    @include small {
+        top: var(--offset);
+        right: var(--offset);
+        left: auto;
+    }
 }
