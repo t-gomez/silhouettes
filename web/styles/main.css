@@ -23,13 +23,31 @@ h1, p {
   display: none;
 }
 
-.uploader {
-  width: 4rem;
-  height: 4rem;
+.uploader-wrapper {
   bottom: 2rem;
   right: 2rem;
   position: fixed;
   z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.uploader-label {
+  background: white;
+  color: #333;
+  border-radius: .5rem;
+  padding: .3rem .6rem;
+  margin-right: 1rem;
+  font-size: .9rem;
+}
+
+.uploader {
+  width: 4rem;
+  height: 4rem;
   background-color: #fff;
   border: none;
   border-radius: .5rem;
