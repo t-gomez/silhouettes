@@ -37,3 +37,12 @@
         background-color: #cecece;
     }
 }
+
+.github-link{
+    $offset: 2rem;
+
+    bottom: $offset; 
+    left: $offset;
+
+    position: fixed;
+}

@@ -51,4 +51,10 @@ h1, p {
 .uploader:hover, .uploader:active {
   background-color: #cecece;
 }
+
+.github-link {
+  bottom: 2rem;
+  left: 2rem;
+  position: fixed;
+}
 /*# sourceMappingURL=main.css.map */
