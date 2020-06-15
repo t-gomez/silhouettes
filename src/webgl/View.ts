@@ -6,7 +6,7 @@
  */
 import { WebGLRenderer, Scene, PerspectiveCamera, Mesh, Geometry, SphereGeometry,TorusGeometry, PlaneGeometry, TorusKnotGeometry, BufferGeometry } from "three";
 import { OrbitControls } from 'OrbitControls';
-import Particles from "./Particles";
+import PointSystem from "./PointSystem";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import GeometryUtils from "@utils/GeometryUtils";
@@ -16,14 +16,14 @@ export default class View {
 	private renderer: WebGLRenderer;
 	private scene: Scene;
 	private camera: PerspectiveCamera;
-	private particles: Particles;
+	private pointSystem: PointSystem;
 	private controls: OrbitControls;
 	private loader: OBJLoader;
 	private uploaderInput: HTMLInputElement;
 	private uploaderButton: HTMLButtonElement;
 	private customShape = false;
 
-	private particleCount = 10000;
+	private pointCount = 10000;
 	
 	private currentSecond: number = null;
 	private currentShapeIndex = -1;
@@ -48,7 +48,7 @@ export default class View {
 
 		this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-		this.particles = new Particles(this.scene, this.particleCount);
+		this.pointSystem = new PointSystem(this.scene, this.pointCount);
 
 		this.loader = new OBJLoader();
 		this.uploaderInput = document.querySelector('#uploader');
@@ -68,7 +68,7 @@ export default class View {
 
 
 	public update(secs: number): void {
-		this.particles.update(secs);
+		this.pointSystem.update(secs);
 		this.renderer.render(this.scene, this.camera);
 
 		if (Math.round(secs) % this.morphDelay === 0) {
@@ -102,7 +102,7 @@ export default class View {
 
 		const geometry = this.shapes[index];
 
-		this.particles.morph(geometry);
+		this.pointSystem.morph(geometry);
 	}
 	
 	private setUploaderEvent(): void {
@@ -131,7 +131,7 @@ export default class View {
 
 					if (custom) {
 						this.customShape = true;
-						this.particles.morph(geometry);
+						this.pointSystem.morph(geometry);
 					} else {
 						this.shapes.push(geometry);
 					}

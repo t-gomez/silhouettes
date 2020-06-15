@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Tomás Gomez Laufgang",
   "license": "ISC",
-  "description": "Particle system morphing prototype using WebGL (three.js) and GSAP.",
+  "description": "Point system morphing prototype using WebGL (three.js) and GSAP.",
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server",

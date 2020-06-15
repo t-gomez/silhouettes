@@ -2,19 +2,19 @@ import { Points, Scene, PointsMaterial, ImageUtils, AdditiveBlending, Vector3, G
 import GeometryUtils from "@utils/GeometryUtils";
 import { TweenMax, Expo } from "gsap";
 
-export default class Particles {
-    public particles: Points;
+export default class PointSystem {
+    public points: Points;
     public count: number;
 
     private material: PointsMaterial;
-    private mapUrl = './textures/particle.png'; 
+    private mapUrl = './textures/texture.png'; 
     private materialScale = .01;
 
-    constructor(scene: Scene, particleCount: number) {
-        this.createParticleMaterial();
-        this.createParticleSystem(particleCount);
+    constructor(scene: Scene, pointCount: number) {
+        this.createPointMaterial();
+        this.createPointSystem(pointCount);
 
-        scene.add(this.particles);
+        scene.add(this.points);
     }
 
     public morph(geometry: Geometry | BufferGeometry): void {
@@ -26,11 +26,11 @@ export default class Particles {
             points = GeometryUtils.randomPointsInGeometry(<Geometry>geometry, this.count);
         }
 
-        const particleGeometry = <Geometry>this.particles.geometry;
+        const systemGeometry = <Geometry>this.points.geometry;
 
         points.forEach((point, i) => {
             TweenMax.to(
-                particleGeometry.vertices[i],
+                systemGeometry.vertices[i],
                 2,
                 {
                     x: point.x,
@@ -41,15 +41,15 @@ export default class Particles {
             );
         });
         
-        particleGeometry.verticesNeedUpdate = true;
+        systemGeometry.verticesNeedUpdate = true;
     }
 
     public update(secs: number): void {
-        this.particles.rotation.y += 0.01;
-        (<Geometry>this.particles.geometry).verticesNeedUpdate = true;
+        this.points.rotation.y += 0.01;
+        (<Geometry>this.points.geometry).verticesNeedUpdate = true;
     }
 
-    private createParticleMaterial(): void {
+    private createPointMaterial(): void {
         this.material = new PointsMaterial({
 			size: this.materialScale,
 			map: ImageUtils.loadTexture(this.mapUrl),
@@ -58,16 +58,16 @@ export default class Particles {
 		});
     }
     
-    private createParticleSystem(particleCount: number): void {
-        this.count = particleCount;
+    private createPointSystem(pointCount: number): void {
+        this.count = pointCount;
         
-        const particles = new Geometry();
+        const points = new Geometry();
         
-		for (let p = 0; p < particleCount; p++) {
+		for (let p = 0; p < pointCount; p++) {
 			const vertex = new Vector3(0, 0, 0);
-			particles.vertices.push(vertex);
+			points.vertices.push(vertex);
         }
         
-        this.particles = new Points(particles, this.material);
+        this.points = new Points(points, this.material);
     }
 }
